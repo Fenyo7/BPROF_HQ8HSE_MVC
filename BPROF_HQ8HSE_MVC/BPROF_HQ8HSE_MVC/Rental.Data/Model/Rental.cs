@@ -13,12 +13,12 @@ namespace Rent.Data
         public int Id { get; set; }
 
         [NotMapped]
-        public VideoGame Game { get; set; }
+        public virtual VideoGame Game { get; set; }
         [ForeignKey(nameof(Game))]
         public int GameRef { get; set; }
 
         [NotMapped]
-        public Person Person { get; set; }
+        public virtual Person Person { get; set; }
         [ForeignKey(nameof(Person))]
         public int PersonRef { get; set; }
 
@@ -27,9 +27,10 @@ namespace Rent.Data
         public DateTime ReturnDate { get; set; }
 
         //Fine calculation: after 30 days, $2 for each day, can be calculated after getting a return date
+        [NotMapped]
         public int DelayFine { get
             {
-                int fine = (ReturnDate == null) ? 0 : (ReturnDate.DayOfYear - RentDate.DayOfYear + ((ReturnDate.Year - RentDate.Year) * 365) - 30) * 2;
+                int fine = (ReturnDate == DateTime.MinValue) ? 0 : (ReturnDate.DayOfYear - RentDate.DayOfYear + ((ReturnDate.Year - RentDate.Year) * 365) - 30) * 2;
                 if(fine > 0)
                 {
                     return fine;
@@ -44,9 +45,9 @@ namespace Rent.Data
         public string AllData { get
             {
                 string helper;
-                if(ReturnDate != null)
+                if(ReturnDate != DateTime.MinValue)
                 {
-                    helper = $"and returned it on {ReturnDate}";
+                    helper = $"and returned it on {ReturnDate.Date}";
                     if(DelayFine > 0)
                     {
                         helper += $", with a fine of ${DelayFine}.";
@@ -60,7 +61,7 @@ namespace Rent.Data
                 {
                     helper = "and have not returned it yet.";
                 }
-                return $"[Id: {Id}] > ({Game.Name}) was rented by ({Person.Name}) on {RentDate} {helper}";
+                return $"[Id: {Id}] > {Game.Name} was rented by {Person.Name} on {RentDate.Date} {helper}";
             } }
     }
 }

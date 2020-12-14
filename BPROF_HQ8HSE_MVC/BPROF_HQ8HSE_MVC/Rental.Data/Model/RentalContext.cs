@@ -28,31 +28,31 @@ namespace Rent.Data
         {
             #region Data 
 
-            Person p0 = new Person() { Name = "Mérleg Csaba", BirthDate = new DateTime(1982, 11, 05) };
-            Person p1 = new Person() { Name = "Kertész Enikő", BirthDate = new DateTime(1994, 04, 22) };
-            Person p2 = new Person() { Name = "Kárpáti Géza", BirthDate = new DateTime(1999, 10, 03) };
-            Person p3 = new Person() { Name = "Fali Eliot", BirthDate = new DateTime(2003, 02, 28) };
-            Person p4 = new Person() { Name = "Taps Éva", BirthDate = new DateTime(2000, 08, 22) };
-            Person p5 = new Person() { Name = "Tali Gergő", BirthDate = new DateTime(1974, 06, 19) };
-            Person p6 = new Person() { Name = "Földi Ramóna", BirthDate = new DateTime(1991, 07, 11) };
+            Person p0 = new Person() { Id = 1, Name = "Mérleg Csaba", BirthDate = new DateTime(1982, 11, 05) };
+            Person p1 = new Person() { Id = 2, Name = "Kertész Enikő", BirthDate = new DateTime(1994, 04, 22) };
+            Person p2 = new Person() { Id = 3, Name = "Kárpáti Géza", BirthDate = new DateTime(1999, 10, 03) };
+            Person p3 = new Person() { Id = 4, Name = "Fali Eliot", BirthDate = new DateTime(2003, 02, 28) };
+            Person p4 = new Person() { Id = 5, Name = "Taps Éva", BirthDate = new DateTime(2000, 08, 22) };
+            Person p5 = new Person() { Id = 6, Name = "Tali Gergő", BirthDate = new DateTime(1974, 06, 19) };
+            Person p6 = new Person() { Id = 7, Name = "Földi Ramóna", BirthDate = new DateTime(1991, 07, 11) };
 
-            VideoGame vg0 = new VideoGame() { Name = "Kerbal Space Program", ReleaseDate = new DateTime(2011, 06, 20), Publisher = "Squad", Rating = 9 };
-            VideoGame vg1 = new VideoGame() { Name = "Far Cry 3", ReleaseDate = new DateTime(2012, 11, 29), Publisher = "Ubisoft", Rating = 10 };
-            VideoGame vg2 = new VideoGame() { Name = "Far Cry 4", ReleaseDate = new DateTime(2014, 11, 18), Publisher = "Ubisoft", Rating = 9 };
-            VideoGame vg3 = new VideoGame() { Name = "Far Cry 5", ReleaseDate = new DateTime(2018, 03, 27), Publisher = "Ubisoft", Rating = 7 };
-            VideoGame vg4 = new VideoGame() { Name = "Oxygen not Included", ReleaseDate = new DateTime(2019, 07, 30), Publisher = "Klei Entertainment", Rating = 8 };
-            VideoGame vg5 = new VideoGame() { Name = "Minecraft", ReleaseDate = new DateTime(2011, 11, 18), Publisher = "Mojang Studios", Rating = 9 };
-            VideoGame vg6 = new VideoGame() { Name = "Don't Starve", ReleaseDate = new DateTime(2013, 04, 23), Publisher = "Klei Entertainment", Rating = 10 };
+            VideoGame vg0 = new VideoGame() { Id = 101, Name = "Kerbal Space Program", ReleaseDate = new DateTime(2011, 06, 20), Publisher = "Squad", Rating = 7 };
+            VideoGame vg1 = new VideoGame() { Id = 102, Name = "Far Cry 3", ReleaseDate = new DateTime(2012, 11, 29), Publisher = "Ubisoft", Rating = 10 };
+            VideoGame vg2 = new VideoGame() { Id = 103, Name = "Far Cry 4", ReleaseDate = new DateTime(2014, 11, 18), Publisher = "Ubisoft", Rating = 9 };
+            VideoGame vg3 = new VideoGame() { Id = 104, Name = "Far Cry 5", ReleaseDate = new DateTime(2018, 03, 27), Publisher = "Ubisoft", Rating = 6 };
+            VideoGame vg4 = new VideoGame() { Id = 105, Name = "Oxygen not Included", ReleaseDate = new DateTime(2019, 07, 30), Publisher = "Klei Entertainment", Rating = 8 };
+            VideoGame vg5 = new VideoGame() { Id = 106, Name = "Minecraft", ReleaseDate = new DateTime(2011, 11, 18), Publisher = "Mojang Studios", Rating = 9 };
+            VideoGame vg6 = new VideoGame() { Id = 107, Name = "Don't Starve", ReleaseDate = new DateTime(2013, 04, 23), Publisher = "Klei Entertainment", Rating = 10 };
 
-            Rental r0 = new Rental() { Game = vg0, Person = p0, RentDate = new DateTime(2020, 02, 15), ReturnDate = new DateTime(2020, 03, 02) };
-            Rental r1 = new Rental() { Game = vg1, Person = p0, RentDate = new DateTime(2020, 03, 02), ReturnDate = new DateTime(2020, 05, 10) };
-            Rental r2 = new Rental() { Game = vg2, Person = p0, RentDate = new DateTime(2020, 05, 10), ReturnDate = new DateTime(2020, 05, 25) };
-            Rental r3 = new Rental() { Game = vg3, Person = p1, RentDate = new DateTime(2020, 03, 15), ReturnDate = new DateTime(2020, 04, 09) };
-            Rental r4 = new Rental() { Game = vg4, Person = p2, RentDate = new DateTime(2020, 06, 07), ReturnDate = new DateTime(2020, 06, 19) };
-            Rental r5 = new Rental() { Game = vg3, Person = p3, RentDate = new DateTime(2020, 10, 03), ReturnDate = new DateTime(2020, 12, 14) };
-            Rental r6 = new Rental() { Game = vg5, Person = p4, RentDate = new DateTime(2020, 11, 24) };
-            Rental r7 = new Rental() { Game = vg5, Person = p5, RentDate = new DateTime(2020, 11, 29) };
-            Rental r8 = new Rental() { Game = vg6, Person = p6, RentDate = new DateTime(2020, 12, 01) };
+            Rental r0 = new Rental() { Id = 201, Game = vg0, Person = p0, RentDate = new DateTime(2020, 02, 15), ReturnDate = new DateTime(2020, 03, 02) };
+            Rental r1 = new Rental() { Id = 202, Game = vg1, Person = p0, RentDate = new DateTime(2020, 03, 02), ReturnDate = new DateTime(2020, 05, 10) };
+            Rental r2 = new Rental() { Id = 203, Game = vg2, Person = p0, RentDate = new DateTime(2020, 05, 10), ReturnDate = new DateTime(2020, 05, 25) };
+            Rental r3 = new Rental() { Id = 204, Game = vg3, Person = p1, RentDate = new DateTime(2020, 03, 15), ReturnDate = new DateTime(2020, 04, 09) };
+            Rental r4 = new Rental() { Id = 205, Game = vg4, Person = p2, RentDate = new DateTime(2020, 06, 07), ReturnDate = new DateTime(2020, 06, 19) };
+            Rental r5 = new Rental() { Id = 206, Game = vg3, Person = p3, RentDate = new DateTime(2020, 10, 03), ReturnDate = new DateTime(2020, 12, 14) };
+            Rental r6 = new Rental() { Id = 207, Game = vg5, Person = p4, RentDate = new DateTime(2020, 11, 24) };
+            Rental r7 = new Rental() { Id = 208, Game = vg5, Person = p5, RentDate = new DateTime(2020, 11, 29) };
+            Rental r8 = new Rental() { Id = 209, Game = vg6, Person = p6, RentDate = new DateTime(2020, 12, 01) };
 
             r0.PersonRef = p0.Id;
             r1.PersonRef = p0.Id;
@@ -93,8 +93,8 @@ namespace Rent.Data
             });
 
             mb.Entity<Rental>().HasData(r0, r1, r2, r3, r4, r5, r6, r7, r8);
-            mb.Entity<Person>().HasData(p1, p2, p3, p4, p5, p6);
-            mb.Entity<VideoGame>().HasData(vg1, vg2, vg3, vg4, vg5, vg6);
+            mb.Entity<Person>().HasData(p0, p1, p2, p3, p4, p5, p6);
+            mb.Entity<VideoGame>().HasData(vg0, vg1, vg2, vg3, vg4, vg5, vg6);
         }
     }
 }

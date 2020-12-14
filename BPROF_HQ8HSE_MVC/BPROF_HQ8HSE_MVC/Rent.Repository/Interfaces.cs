@@ -24,6 +24,6 @@ namespace Rent.Repository
 
     public interface IPersonRepository : IRepository<Person>
     {
-
+        void ChangeName(int id, string newName);
     }
 }

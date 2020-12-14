@@ -52,5 +52,12 @@ namespace Rent.Repository
         {
             return GetAll().SingleOrDefault(x => x.Id.Equals(id));
         }
+
+        public void ChangeName(int id, string newName)
+        {
+            var person = GetOne(id);
+            person.Name = newName;
+            ctx.SaveChanges();
+        }
     }
 }
