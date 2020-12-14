@@ -44,15 +44,15 @@ namespace Rent.Data
             VideoGame vg5 = new VideoGame() { Id = 106, Name = "Minecraft", ReleaseDate = new DateTime(2011, 11, 18), Publisher = "Mojang Studios", Rating = 9 };
             VideoGame vg6 = new VideoGame() { Id = 107, Name = "Don't Starve", ReleaseDate = new DateTime(2013, 04, 23), Publisher = "Klei Entertainment", Rating = 10 };
 
-            Rental r0 = new Rental() { Id = 201, Game = vg0, Person = p0, RentDate = new DateTime(2020, 02, 15), ReturnDate = new DateTime(2020, 03, 02) };
-            Rental r1 = new Rental() { Id = 202, Game = vg1, Person = p0, RentDate = new DateTime(2020, 03, 02), ReturnDate = new DateTime(2020, 05, 10) };
-            Rental r2 = new Rental() { Id = 203, Game = vg2, Person = p0, RentDate = new DateTime(2020, 05, 10), ReturnDate = new DateTime(2020, 05, 25) };
-            Rental r3 = new Rental() { Id = 204, Game = vg3, Person = p1, RentDate = new DateTime(2020, 03, 15), ReturnDate = new DateTime(2020, 04, 09) };
-            Rental r4 = new Rental() { Id = 205, Game = vg4, Person = p2, RentDate = new DateTime(2020, 06, 07), ReturnDate = new DateTime(2020, 06, 19) };
-            Rental r5 = new Rental() { Id = 206, Game = vg3, Person = p3, RentDate = new DateTime(2020, 10, 03), ReturnDate = new DateTime(2020, 12, 14) };
-            Rental r6 = new Rental() { Id = 207, Game = vg5, Person = p4, RentDate = new DateTime(2020, 11, 24) };
-            Rental r7 = new Rental() { Id = 208, Game = vg5, Person = p5, RentDate = new DateTime(2020, 11, 29) };
-            Rental r8 = new Rental() { Id = 209, Game = vg6, Person = p6, RentDate = new DateTime(2020, 12, 01) };
+            Rental r0 = new Rental() { Id = 201, RentDate = new DateTime(2020, 02, 15), ReturnDate = new DateTime(2020, 03, 02) };
+            Rental r1 = new Rental() { Id = 202, RentDate = new DateTime(2020, 03, 02), ReturnDate = new DateTime(2020, 05, 10) };
+            Rental r2 = new Rental() { Id = 203, RentDate = new DateTime(2020, 05, 10), ReturnDate = new DateTime(2020, 05, 25) };
+            Rental r3 = new Rental() { Id = 204, RentDate = new DateTime(2020, 03, 15), ReturnDate = new DateTime(2020, 04, 09) };
+            Rental r4 = new Rental() { Id = 205, RentDate = new DateTime(2020, 06, 07), ReturnDate = new DateTime(2020, 06, 19) };
+            Rental r5 = new Rental() { Id = 206, RentDate = new DateTime(2020, 10, 03), ReturnDate = new DateTime(2020, 12, 14) };
+            Rental r6 = new Rental() { Id = 207, RentDate = new DateTime(2020, 11, 24) };
+            Rental r7 = new Rental() { Id = 208, RentDate = new DateTime(2020, 11, 29) };
+            Rental r8 = new Rental() { Id = 209, RentDate = new DateTime(2020, 12, 01) };
 
             r0.PersonRef = p0.Id;
             r1.PersonRef = p0.Id;
