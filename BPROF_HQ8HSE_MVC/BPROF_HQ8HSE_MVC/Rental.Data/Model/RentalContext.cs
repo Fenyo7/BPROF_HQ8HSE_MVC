@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Rental.Data
+namespace Rent.Data
 {
-    class RentalContext : DbContext
+    public class RentalContext : DbContext
     {
         public virtual DbSet<Rental> Rentals { get; set; }
         public virtual DbSet<VideoGame> Games { get; set; }

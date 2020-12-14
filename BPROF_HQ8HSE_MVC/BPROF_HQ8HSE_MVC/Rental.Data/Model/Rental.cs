@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Rental.Data
+namespace Rent.Data
 {
-    class Rental
+    public class Rental
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
