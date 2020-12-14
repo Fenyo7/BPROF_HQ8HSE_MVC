@@ -22,5 +22,13 @@ namespace Rent.Data
         {
             Rentals = new HashSet<Rental>();
         }
+
+        [NotMapped]
+        public string AllData => $"[Id: {Id}] > Name : {Name}, birth date: {BirthDate.Date}";
+
+        public override string ToString()
+        {
+            return AllData;
+        }
     }
 }

@@ -18,9 +18,18 @@ namespace BPROF_HQ8HSE_MVC
             VideoGameLogic gameLogic = new VideoGameLogic(gameRepo);
             PersonLogic personLogic = new PersonLogic(personRepo);
 
-            Console.WriteLine(ctx.People.Count());
-            Console.WriteLine(ctx.Games.Count());
-            Console.WriteLine(ctx.Rentals.Count());
+            Console.WriteLine(">List all rents");
+            rentLogic.GetAllRentals().ToList().ForEach(x => Console.WriteLine(x.AllData));
+
+            Console.WriteLine("\n\n##################################################\n");
+
+            Console.WriteLine("\n\n>List all games");
+            gameLogic.GetAllGames().ToList().ForEach(x => Console.WriteLine(x.AllData));
+
+            Console.WriteLine("\n\n##################################################\n");
+
+            Console.WriteLine("\n\n>List all people");
+            personLogic.GetAllPeople().ToList().ForEach(x => Console.WriteLine(x.AllData));
         }
     }
 }

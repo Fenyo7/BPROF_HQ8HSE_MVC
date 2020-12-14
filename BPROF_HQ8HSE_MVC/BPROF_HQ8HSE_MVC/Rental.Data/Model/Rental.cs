@@ -63,5 +63,10 @@ namespace Rent.Data
                 }
                 return $"[Id: {Id}] > {Game.Name} was rented by {Person.Name} on {RentDate.Date} {helper}";
             } }
+
+        public override string ToString()
+        {
+            return AllData;
+        }
     }
 }

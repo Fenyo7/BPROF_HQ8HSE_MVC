@@ -23,5 +23,13 @@ namespace Rent.Data
         {
             Rentals = new HashSet<Rental>();
         }
+
+        [NotMapped]
+        public string AllData => $"[Id: {Id}] > {Name} was released on {ReleaseDate.Date} by {Publisher}. It has a rating of {Rating}/10. ";
+
+        public override string ToString()
+        {
+            return AllData;
+        }
     }
 }
