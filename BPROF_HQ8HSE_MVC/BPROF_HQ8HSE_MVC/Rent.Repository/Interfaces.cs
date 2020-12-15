@@ -15,13 +15,13 @@ namespace Rent.Repository
 
     public interface IRentRepository : IRepository<Rental>
     {
-        void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate);
+        void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate);
         void ChangeRentDate(int id, DateTime newRentDate);
     }
 
     public interface IVideoGameRepository : IRepository<VideoGame>
     {
-        void NewGame(int id, string name, DateTime releaseDate, string publisher, int rating);
+        void NewGame(string name, DateTime releaseDate, string publisher, int rating);
         void ChangeGameName(int id, string newName);
         void ChangeGameReleaseDate(int id, DateTime newReleaseDate);
         void ChangeGamePublisher(int id, string newPublisher);
@@ -30,7 +30,7 @@ namespace Rent.Repository
 
     public interface IPersonRepository : IRepository<Person>
     {
-        void NewPerson(int id, string name, DateTime birthDate);
+        void NewPerson(string name, DateTime birthDate);
         void ChangePersonName(int id, string newName);
         void ChangePersonBirthDate(int id, DateTime newBirthDate);
     }

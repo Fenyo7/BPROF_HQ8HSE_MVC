@@ -58,11 +58,10 @@ namespace Rent.Repository
             }
         }
 
-        public void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate)
+        public void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate)
         {
             Rental r = new Rental()
             {
-                Id = id,
                 GameRef = gameId,
                 PersonRef = personId,
                 RentDate = rentDate,
@@ -110,11 +109,10 @@ namespace Rent.Repository
             return GetAll().SingleOrDefault(x => x.Id.Equals(id));
         }
 
-        public void NewGame(int id, string name, DateTime releaseDate, string publisher, int rating)
+        public void NewGame(string name, DateTime releaseDate, string publisher, int rating)
         {
             VideoGame v = new VideoGame()
             {
-                Id = id,
                 Name = name,
                 ReleaseDate =
                 releaseDate,
@@ -163,11 +161,10 @@ namespace Rent.Repository
             ctx.SaveChanges();
         }
 
-        public void NewPerson(int id, string name, DateTime birthDate)
+        public void NewPerson( string name, DateTime birthDate)
         {
             Person p = new Person()
             { 
-                Id = id,
                 Name = name,
                 BirthDate = birthDate
             };

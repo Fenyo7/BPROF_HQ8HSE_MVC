@@ -43,9 +43,9 @@ namespace Rent.Logic
             }
         }
 
-        public void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate)
+        public void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate)
         {
-            rentRepo.NewRent(id, gameId, personId, rentDate, returnDate);
+            rentRepo.NewRent(gameId, personId, rentDate, returnDate);
         }
     }
 }

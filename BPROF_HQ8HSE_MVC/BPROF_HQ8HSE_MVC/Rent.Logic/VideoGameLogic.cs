@@ -51,9 +51,9 @@ namespace Rent.Logic
             return gameRepo.GetOne(id);
         }
 
-        public void NewGame(int id, string name, DateTime releaseDate, string publisher, int rating)
+        public void NewGame(string name, DateTime releaseDate, string publisher, int rating)
         {
-            gameRepo.NewGame(id, name, releaseDate, publisher, rating);
+            gameRepo.NewGame(name, releaseDate, publisher, rating);
         }
     }
 }

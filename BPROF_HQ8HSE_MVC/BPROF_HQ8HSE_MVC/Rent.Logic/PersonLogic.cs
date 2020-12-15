@@ -41,9 +41,9 @@ namespace Rent.Logic
             return personRepo.GetOne(id);
         }
 
-        public void NewPerson(int id, string name, DateTime birthDate)
+        public void NewPerson(string name, DateTime birthDate)
         {
-            personRepo.NewPerson(id, name, birthDate);
+            personRepo.NewPerson(name, birthDate);
         }
     }
 }

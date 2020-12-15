@@ -9,7 +9,7 @@ namespace Rent.Logic
     {
         Person GetPersonById(int id);
         IList<Person> GetAllPeople();
-        void NewPerson(int id, string name, DateTime birthDate);
+        void NewPerson(string name, DateTime birthDate);
         void ChangePersonName(int id, string newName);
         void ChangePersonBirthDate(int id, DateTime newBirthDate);
         void DeletePerson(int id);

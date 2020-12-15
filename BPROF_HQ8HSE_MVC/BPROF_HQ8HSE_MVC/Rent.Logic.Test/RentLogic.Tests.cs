@@ -26,16 +26,24 @@ namespace Rent.Logic.Test
 
         #region Rent tests
 
-        [TestCase(210, 105, 4, 2020, 12, 11, 1, 1, 1)]
-        [TestCase(211, 102, 5, 2020, 11, 20, 2020, 12, 7)]
-        public void CreateRentTest(int id, int gameId, int personId, int rentYear, int rentMonth, int rentDay, int returnYear, int returnMonth, int returnDay)
+        [TestCase(105, 4, 2020, 12, 11, 1, 1, 1)]
+        [TestCase(102, 5, 2020, 11, 20, 2020, 12, 7)]
+        public void CreateRentTest(int gameId, int personId, int rentYear, int rentMonth, int rentDay, int returnYear, int returnMonth, int returnDay)
         {
-            //DateTime rentDate = new DateTime(rentYear, rentMonth, rentDay);
-            //DateTime returnDate = new DateTime(returnYear, returnMonth, returnDay);
-            //rentLogic.NewRent(id, gameId, personId, rentDate, returnDate);
-            //Assert.That(rentLogic.GetRentById(id).Id, Is.EqualTo(id));
+            DateTime rentDate = new DateTime(rentYear, rentMonth, rentDay);
+            DateTime returnDate = new DateTime(returnYear, returnMonth, returnDay);
+            rentLogic.NewRent(gameId, personId, rentDate, returnDate);
 
-            Assert.Pass();
+            var all = rentLogic.GetAllRentals();
+            int id = 0;
+            foreach (var item in all)
+            {
+                if (item.RentDate == rentDate)
+                {
+                    id = item.Id;
+                }
+            }
+            Assert.That(rentLogic.GetRentById(id).Id, Is.EqualTo(id));
         }
 
         [TestCase(201, 2012, 01, 01)]
@@ -64,14 +72,21 @@ namespace Rent.Logic.Test
 
         #region Game tests
 
-        [TestCase(108, "Mad Max", 2015, 09, 06, "Warner Bros interactive entertainment", 9)]
-        public void CreateGameTest(int id, string name, int releaseYear, int releaseMonth, int releaseDay, string publisher, int rating)
+        [TestCase("Mad Max", 2015, 09, 06, "Warner Bros interactive entertainment", 9)]
+        public void CreateGameTest(string name, int releaseYear, int releaseMonth, int releaseDay, string publisher, int rating)
         {
-            //DateTime releaseDate = new DateTime(releaseYear, releaseMonth, releaseDay);
-            //gameLogic.NewGame(id, name, releaseDate, publisher, rating);
-            //Assert.That(gameLogic.GetGameById(id).Id, Is.EqualTo(id));
-
-            Assert.Pass();
+            DateTime releaseDate = new DateTime(releaseYear, releaseMonth, releaseDay);
+            gameLogic.NewGame(name, releaseDate, publisher, rating);
+            var all = gameLogic.GetAllGames();
+            int id = 0;
+            foreach (var item in all)
+            {
+                if (item.Name == name)
+                {
+                    id = item.Id;
+                }
+            }
+            Assert.That(gameLogic.GetGameById(id).Id, Is.EqualTo(id));
         }
 
         [TestCase(104, "Celeste")]
@@ -111,14 +126,22 @@ namespace Rent.Logic.Test
 
         #region Person tests
 
-        [TestCase(8, "Kárnyos Béla", 1974, 11, 20)]
-        public void CreatePersonTest(int id, string name, int birthYear, int birthMonth, int birthDay)
+        [TestCase("Kárnyos Béla", 1974, 11, 20)]
+        public void CreatePersonTest(string name, int birthYear, int birthMonth, int birthDay)
         {
-            //DateTime birthDate = new DateTime(birthYear, birthMonth, birthDay);
-            //personLogic.NewPerson(id, name, birthDate);
-            //Assert.That(personLogic.GetPersonById(id).Id, Is.EqualTo(id));
+            DateTime birthDate = new DateTime(birthYear, birthMonth, birthDay);
+            personLogic.NewPerson(name, birthDate);
 
-            Assert.Pass();
+            var all = personLogic.GetAllPeople();
+            int id = 0;
+            foreach (var item in all)
+            {
+                if (item.Name == name)
+                {
+                    id = item.Id;
+                }
+            }
+            Assert.That(personLogic.GetPersonById(id).Id, Is.EqualTo(id));
         }
 
         [TestCase(1, "Fá Zoltán")]
