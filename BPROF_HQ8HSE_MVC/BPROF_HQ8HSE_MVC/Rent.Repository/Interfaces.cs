@@ -14,16 +14,23 @@ namespace Rent.Repository
 
     public interface IRentRepository : IRepository<Rental>
     {
-        //Methods for interacting with data layer
+        void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate);
+        void ChangeRentDate(int id, DateTime newRentDate);
     }
 
     public interface IVideoGameRepository : IRepository<VideoGame>
     {
-
+        void NewGame(int id, string name, DateTime releaseDate, string publisher, int rating);
+        void ChangeGameName(int id, string newName);
+        void ChangeGameReleaseDate(int id, DateTime newReleaseDate);
+        void ChangeGamePublisher(int id, string newPublisher);
+        void ChangeGameRating(int id, int newRating);
     }
 
     public interface IPersonRepository : IRepository<Person>
     {
-        void ChangeName(int id, string newName);
+        void NewPerson(int id, string name, DateTime birthDate);
+        void ChangePersonName(int id, string newName);
+        void ChangePersonBirthDate(int id, DateTime newBirthDate);
     }
 }

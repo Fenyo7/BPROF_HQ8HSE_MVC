@@ -9,18 +9,7 @@ namespace Rent.Logic
     {
         Rental GetRentById(int id);
         IList<Rental> GetAllRentals();
-    }
-
-    public interface IPersonLogic
-    {
-        Person GetPersonById(int id);
-        IList<Person> GetAllPeople();
-        void ChangePersonName(int id, string newName);
-    }
-
-    public interface IVideoGameLogic
-    {
-        VideoGame GetGameById(int id);
-        IList<VideoGame> GetAllGames();
+        void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate);
+        void ChangeRentDate(int id, DateTime newRentDate);
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent.Repository", "Rent.Rep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent.Logic", "Rent.Logic\Rent.Logic.csproj", "{2E0D3AA7-F867-4251-8ADF-23B7D6027F63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent.Logic.Test", "Rent.Logic.Test\Rent.Logic.Test.csproj", "{DC1765E1-3DB6-4937-8193-DB8442CB978A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2E0D3AA7-F867-4251-8ADF-23B7D6027F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0D3AA7-F867-4251-8ADF-23B7D6027F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0D3AA7-F867-4251-8ADF-23B7D6027F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC1765E1-3DB6-4937-8193-DB8442CB978A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC1765E1-3DB6-4937-8193-DB8442CB978A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC1765E1-3DB6-4937-8193-DB8442CB978A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC1765E1-3DB6-4937-8193-DB8442CB978A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

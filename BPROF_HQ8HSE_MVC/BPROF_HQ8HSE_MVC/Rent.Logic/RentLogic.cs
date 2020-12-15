@@ -16,6 +16,11 @@ namespace Rent.Logic
             this.rentRepo = rentRepo;
         }
 
+        public void ChangeRentDate(int id, DateTime newRentDate)
+        {
+            rentRepo.ChangeRentDate(id, newRentDate);
+        }
+
         public IList<Rental> GetAllRentals()
         {
             return rentRepo.GetAll().ToList();
@@ -25,50 +30,10 @@ namespace Rent.Logic
         {
             return rentRepo.GetOne(id);
         }
-    }
 
-    public class PersonLogic : IPersonLogic
-    {
-        IPersonRepository personRepo;
-
-        public PersonLogic(IPersonRepository personRepo)
+        public void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate)
         {
-            this.personRepo = personRepo;
-        }
-
-        public void ChangePersonName(int id, string newName)
-        {
-            personRepo.ChangeName(id, newName);
-        }
-
-        public IList<Person> GetAllPeople()
-        {
-            return personRepo.GetAll().ToList();
-        }
-
-        public Person GetPersonById(int id)
-        {
-            return personRepo.GetOne(id);
-        }
-    }
-
-    public class VideoGameLogic : IVideoGameLogic
-    {
-        IVideoGameRepository gameRepo;
-
-        public VideoGameLogic(IVideoGameRepository gameRepo)
-        {
-            this.gameRepo = gameRepo;
-        }
-
-        public IList<VideoGame> GetAllGames()
-        {
-            return gameRepo.GetAll().ToList();
-        }
-
-        public VideoGame GetGameById(int id)
-        {
-            return gameRepo.GetOne(id);
+            rentRepo.NewRent(id, gameId, personId, rentDate, returnDate);
         }
     }
 }
