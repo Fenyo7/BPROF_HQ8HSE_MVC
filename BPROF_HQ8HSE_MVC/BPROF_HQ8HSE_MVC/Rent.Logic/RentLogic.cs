@@ -33,7 +33,14 @@ namespace Rent.Logic
 
         public Rental GetRentById(int id)
         {
-            return rentRepo.GetOne(id);
+            try
+            {
+                return rentRepo.GetOne(id);
+            }
+            catch (ArgumentException)
+            {
+                throw new ArgumentException("Data on this index does not exist.");
+            }
         }
 
         public void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate)

@@ -38,13 +38,25 @@ namespace Rent.Repository
 
         public override void DeleteOne(int id)
         {
+
             ctx.Set<Rental>().Remove(GetOne(id));
             ctx.SaveChanges();
         }
 
         public override Rental GetOne(int id)
         {
-            return GetAll().SingleOrDefault(x => x.Id.Equals(id));
+            try
+            {
+                return GetAll().SingleOrDefault(x => x.Id.Equals(id));
+            }
+            catch(ArgumentException)
+            {
+                throw new ArgumentException("Data on this index does not exist.");
+            }
+            catch (NullReferenceException)
+            {
+                throw new NullReferenceException("Data on this index does not exist.");
+            }
         }
 
         public void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate)
