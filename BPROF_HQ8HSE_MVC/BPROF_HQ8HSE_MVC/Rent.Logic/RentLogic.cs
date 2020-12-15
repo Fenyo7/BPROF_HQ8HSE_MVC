@@ -21,6 +21,11 @@ namespace Rent.Logic
             rentRepo.ChangeRentDate(id, newRentDate);
         }
 
+        public void DeleteRent(int id)
+        {
+            rentRepo.DeleteOne(id);
+        }
+
         public IList<Rental> GetAllRentals()
         {
             return rentRepo.GetAll().ToList();

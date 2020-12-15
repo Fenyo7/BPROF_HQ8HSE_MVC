@@ -10,6 +10,7 @@ namespace Rent.Repository
     {
         T GetOne(int id);
         IQueryable<T> GetAll();
+        void DeleteOne(int id);
     }
 
     public interface IRentRepository : IRepository<Rental>

@@ -26,6 +26,11 @@ namespace Rent.Logic
             personRepo.ChangePersonName(id, newName);
         }
 
+        public void DeletePerson(int id)
+        {
+            personRepo.DeleteOne(id);
+        }
+
         public IList<Person> GetAllPeople()
         {
             return personRepo.GetAll().ToList();

@@ -36,6 +36,11 @@ namespace Rent.Logic
             gameRepo.ChangeGameReleaseDate(id, newReleaseDate);
         }
 
+        public void DeleteGame(int id)
+        {
+            gameRepo.DeleteOne(id);
+        }
+
         public IList<VideoGame> GetAllGames()
         {
             return gameRepo.GetAll().ToList();

@@ -12,5 +12,6 @@ namespace Rent.Logic
         void NewPerson(int id, string name, DateTime birthDate);
         void ChangePersonName(int id, string newName);
         void ChangePersonBirthDate(int id, DateTime newBirthDate);
+        void DeletePerson(int id);
     }
 }

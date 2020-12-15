@@ -21,6 +21,7 @@ namespace Rent.Repository
             return ctx.Set<T>();
         }
 
+        public abstract void DeleteOne(int id);
         public abstract T GetOne(int id);
     }
 
@@ -32,6 +33,12 @@ namespace Rent.Repository
         {
             var rent = GetOne(id);
             rent.RentDate = newRentDate;
+            ctx.SaveChanges();
+        }
+
+        public override void DeleteOne(int id)
+        {
+            ctx.Set<Rental>().Remove(GetOne(id));
             ctx.SaveChanges();
         }
 
@@ -107,6 +114,12 @@ namespace Rent.Repository
             ctx.Set<VideoGame>().Attach(v);
             ctx.SaveChanges();
         }
+
+        public override void DeleteOne(int id)
+        {
+            ctx.Set<VideoGame>().Remove(GetOne(id));
+            ctx.SaveChanges();
+        }
     }
 
     public class PersonRepository : Repository<Person>, IPersonRepository
@@ -148,6 +161,12 @@ namespace Rent.Repository
         {
             var person = GetOne(id);
             person.BirthDate = newBirthDate;
+            ctx.SaveChanges();
+        }
+
+        public override void DeleteOne(int id)
+        {
+            ctx.Set<Person>().Remove(GetOne(id));
             ctx.SaveChanges();
         }
     }

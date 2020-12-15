@@ -11,5 +11,6 @@ namespace Rent.Logic
         IList<Rental> GetAllRentals();
         void NewRent(int id, int gameId, int personId, DateTime rentDate, DateTime returnDate);
         void ChangeRentDate(int id, DateTime newRentDate);
+        void DeleteRent(int id);
     }
 }

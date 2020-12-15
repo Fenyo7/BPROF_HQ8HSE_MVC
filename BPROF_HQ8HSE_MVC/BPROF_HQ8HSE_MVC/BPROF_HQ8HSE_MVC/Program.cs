@@ -35,16 +35,19 @@ namespace BPROF_HQ8HSE_MVC
 
             rentLogic.ChangeRentDate(201, new DateTime(2012,01,01));
             rentLogic.NewRent(210, 105, 4, new DateTime(2020, 12, 11), new DateTime());
+            rentLogic.DeleteRent(209);
 
             personLogic.ChangePersonBirthDate(3, new DateTime(2010, 01, 12));
             personLogic.ChangePersonName(1, "Fá Zoltán");
             personLogic.NewPerson(8, "Kárnyos Béla", new DateTime(1974, 11, 20));
+            personLogic.DeletePerson(7);
 
             gameLogic.ChangeGameName(104, "Celeste");
             gameLogic.ChangeGamePublisher(104, "Matt Makes Games");
             gameLogic.ChangeGameRating(104, 10);
             gameLogic.ChangeGameReleaseDate(104, new DateTime(2018, 01, 25));
             gameLogic.NewGame(108, "Mad Max", new DateTime(2015, 09, 01), "Warner Bros interactive entertainment", 9);
+            gameLogic.DeleteGame(107);
 
             //##################################################
 

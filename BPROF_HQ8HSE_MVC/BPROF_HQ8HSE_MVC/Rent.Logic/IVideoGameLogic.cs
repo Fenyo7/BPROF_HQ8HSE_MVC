@@ -14,5 +14,6 @@ namespace Rent.Logic
         void ChangeGameReleaseDate(int id, DateTime newReleaseDate);
         void ChangeGamePublisher(int id, string newPublisher);
         void ChangeGameRating(int id, int newRating);
+        void DeleteGame(int id);
     }
 }
