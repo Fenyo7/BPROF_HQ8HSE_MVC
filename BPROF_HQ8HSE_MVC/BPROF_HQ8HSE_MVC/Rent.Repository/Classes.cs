@@ -57,7 +57,7 @@ namespace Rent.Repository
                 RentDate = rentDate,
                 ReturnDate = returnDate
             };
-            ctx.Set<Rental>().Attach(r);
+            ctx.Set<Rental>().Add(r);
             ctx.SaveChanges();
         }
     }
@@ -111,7 +111,7 @@ namespace Rent.Repository
                 publisher,
                 Rating = rating
             };
-            ctx.Set<VideoGame>().Attach(v);
+            ctx.Set<VideoGame>().Add(v);
             ctx.SaveChanges();
         }
 
@@ -146,7 +146,7 @@ namespace Rent.Repository
                 Name = name,
                 BirthDate = birthDate
             };
-            ctx.Set<Person>().Attach(p);
+            ctx.Set<Person>().Add(p);
             ctx.SaveChanges();
         }
 
