@@ -38,7 +38,6 @@ namespace Rent.Repository
 
         public override void DeleteOne(int id)
         {
-
             ctx.Set<Rental>().Remove(GetOne(id));
             ctx.SaveChanges();
         }
@@ -129,6 +128,20 @@ namespace Rent.Repository
 
         public override void DeleteOne(int id)
         {
+            var toRemove = GetOne(id);
+            RentRepository rentRepo = new RentRepository(ctx);
+            List<int> refs = new List<int>();
+
+            foreach (var item in toRemove.Rentals)
+            {
+                refs.Add(item.Id);
+            }
+
+            foreach (var item in refs)
+            {
+                rentRepo.DeleteOne(item);
+            }
+
             ctx.Set<VideoGame>().Remove(GetOne(id));
             ctx.SaveChanges();
         }
@@ -178,6 +191,20 @@ namespace Rent.Repository
 
         public override void DeleteOne(int id)
         {
+            var toRemove = GetOne(id);
+            RentRepository rentRepo = new RentRepository(ctx);
+            List<int> refs = new List<int>();
+
+            foreach (var item in toRemove.Rentals)
+            {
+                refs.Add(item.Id);
+            }
+
+            foreach (var item in refs)
+            {
+                rentRepo.DeleteOne(item);
+            }
+
             ctx.Set<Person>().Remove(GetOne(id));
             ctx.SaveChanges();
         }
