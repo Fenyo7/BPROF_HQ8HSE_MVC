@@ -12,5 +12,8 @@ namespace Rent.Logic
         void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate);
         void ChangeRentDate(int id, DateTime newRentDate);
         void DeleteRent(int id);
+        string MostFine();
+        string MostRentedGame();
+        string MostRentsByPerson();
     }
 }

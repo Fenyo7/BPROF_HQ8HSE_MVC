@@ -43,6 +43,21 @@ namespace Rent.Logic
             }
         }
 
+        public string MostFine()
+        {
+            return rentRepo.MostFine();
+        }
+
+        public string MostRentedGame()
+        {
+            return rentRepo.MostRentedGame();
+        }
+
+        public string MostRentsByPerson()
+        {
+            return rentRepo.MostRentsByPerson();
+        }
+
         public void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate)
         {
             rentRepo.NewRent(gameId, personId, rentDate, returnDate);

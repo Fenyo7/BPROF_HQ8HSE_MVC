@@ -65,6 +65,12 @@ namespace BPROF_HQ8HSE_MVC
 
             Console.WriteLine("\n\n>List all people");
             personLogic.GetAllPeople().ToList().ForEach(x => Console.WriteLine(x.AllData));
+
+            Console.WriteLine("\n\n##################################################\n");
+            Console.WriteLine("Non-CRUD methods: \n\n");
+            Console.WriteLine(rentLogic.MostFine());
+            //Console.WriteLine(rentLogic.MostRentedGame());
+            //Console.WriteLine(rentLogic.MostRentsByPerson());
         }
     }
 }

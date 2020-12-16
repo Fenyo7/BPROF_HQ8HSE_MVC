@@ -17,6 +17,10 @@ namespace Rent.Repository
     {
         void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate);
         void ChangeRentDate(int id, DateTime newRentDate);
+
+        string MostRentsByPerson();
+        string MostRentedGame();
+        string MostFine();
     }
 
     public interface IVideoGameRepository : IRepository<VideoGame>

@@ -58,6 +58,101 @@ namespace Rent.Repository
             }
         }
 
+        public string MostFine()
+        {
+            string r = "";
+
+            var all = GetAll();
+            int maxFine = 0;
+            int id = 0;
+            string name = "";
+            foreach (var item in all)
+            {
+                if (item.DelayFine > maxFine)
+                {
+                    maxFine = item.DelayFine;
+                    id = item.Id;
+                    name = item.Person.Name;
+                }
+            }
+            var rent = GetOne(id);
+            r += $"{name} has the biggest fine of ${rent.DelayFine}.";
+
+            return r;
+        }
+
+        public string MostRentedGame()
+        {
+            string r = "";
+            VideoGameRepository gRepo = new VideoGameRepository(ctx);
+            var all = gRepo.GetAll();
+
+            int maxCount = 0;
+            int id = 0;
+            foreach (var item in all)
+            {
+                if(item.Rentals.Count() > maxCount)
+                {
+                    maxCount = item.Rentals.Count();
+                    id = item.Id;
+                }
+            }
+
+            //var games = from x in all
+            //         group x by x.Rentals.Count into g
+            //         select new
+            //         {
+            //             _GROUP = g.Key,
+            //             _COUNT =g.Count()
+            //         };
+
+            //var games2 = from x in games
+            //             orderby x._COUNT
+            //             select x;
+            
+            //int key = gameKey._GROUP;
+            //int count = maxCount._COUNT;
+
+            r += $"{gRepo.GetOne(id).Name} has been rented the most times, a total of {maxCount} times.";
+
+            return r;
+        }
+
+        public string MostRentsByPerson()
+        {
+            string r = "";
+
+            var all = GetAll();
+            List<Person> p = new List<Person>();
+            int[] Counts = new int[all.Count()];
+            int id = 0;
+            foreach (var item in all)
+            {
+                id = 0;
+                foreach (var reference in all)
+                {
+                    if (p.Contains(item.Person))
+                    {
+                        Counts[id]++;
+                    }
+                }
+                id++;
+            }
+
+            int maxCount = 0;
+            for (int i = 0; i < Counts.Length; i++)
+            {
+                if(Counts[i] > maxCount)
+                {
+                    maxCount = Counts[i];
+                    id = i;
+                }
+            }
+
+            r += $"{GetOne(id).Person.Name} has the most rents, a total of {maxCount} rents.";
+            return r;
+        }
+
         public void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate)
         {
             Rental r = new Rental()
