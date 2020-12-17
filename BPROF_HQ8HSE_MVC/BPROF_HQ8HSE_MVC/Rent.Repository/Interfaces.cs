@@ -15,7 +15,7 @@ namespace Rent.Repository
 
     public interface IRentRepository : IRepository<Rental>
     {
-        void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate);
+        void NewRent(Rental r);
         void ChangeRentDate(int id, DateTime newRentDate);
 
         string MostRentsByPerson();

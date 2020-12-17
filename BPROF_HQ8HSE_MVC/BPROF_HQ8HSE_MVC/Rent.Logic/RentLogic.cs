@@ -58,9 +58,9 @@ namespace Rent.Logic
             return rentRepo.MostRentsByPerson();
         }
 
-        public void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate)
+        public void NewRent(Rental r)
         {
-            rentRepo.NewRent(gameId, personId, rentDate, returnDate);
+            rentRepo.NewRent(r);
         }
     }
 }

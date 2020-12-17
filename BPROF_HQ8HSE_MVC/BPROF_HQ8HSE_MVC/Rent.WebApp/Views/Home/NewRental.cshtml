@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Rent.Data
+@model Rent.WebApp.Controllers.DataHelper
+
 @{
+    Layout = null;
 }
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New rental</title>
+</head>
+<body>
+    <h1>New Rental</h1>
+    <a href="/Home/Index">Home</a>
+    <br />
+    <form action="/Home/NewRental" method="post">
+        <br />
+        <label for="PersonRef">Choose a person:</label>
+        <select id="PersonRef" name="PersonRef">
+            @foreach (var item in Model.p)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+        <br />
+        <label for="GameRef">Choose a game:</label>
+        <select id="GameRef" name="GameRef">
+            @foreach (var item in Model.g)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select> <br />
+        Rent date: <br />
+        <input type="datetime" name="RentDate" /><br />
+        Return date: <br />
+        <input type="datetime" name="ReturnDate" /><br />
+        <input type="submit" value="Create" />
+    </form>
+</body>
+</html>

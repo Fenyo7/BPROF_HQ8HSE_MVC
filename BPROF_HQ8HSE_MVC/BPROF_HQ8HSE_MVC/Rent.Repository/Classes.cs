@@ -148,15 +148,8 @@ namespace Rent.Repository
             return r;
         }
 
-        public void NewRent(int gameId, int personId, DateTime rentDate, DateTime returnDate)
+        public void NewRent(Rental r)
         {
-            Rental r = new Rental()
-            {
-                GameRef = gameId,
-                PersonRef = personId,
-                RentDate = rentDate,
-                ReturnDate = returnDate
-            };
             ctx.Set<Rental>().Add(r);
             ctx.SaveChanges();
         }

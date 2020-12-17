@@ -8,6 +8,18 @@ using System.Threading.Tasks;
 
 namespace Rent.WebApp.Controllers
 {
+    public class DataHelper
+    {
+        public IList<Person> p;
+        public IList<VideoGame> g;
+
+        public DataHelper(IList<Person> p, IList<VideoGame> g)
+        {
+            this.p = p;
+            this.g = g;
+        }
+    }
+
     public class HomeController : Controller
     {
         RentLogic rentLogic;
@@ -34,14 +46,17 @@ namespace Rent.WebApp.Controllers
         [HttpGet]
         public IActionResult NewRental()
         {
-            return View();
+            DataHelper h = new DataHelper(personLogic.GetAllPeople(), gameLogic.GetAllGames());
+            return View(h);
         }
 
         [HttpPost]
         public IActionResult NewRental(Rental r)
         {
-            rentLogic.NewRent(r.GameRef, r.PersonRef, r.RentDate, r.ReturnDate);
-            return RedirectToAction(nameof(Index));
+            r.Game = gameLogic.GetGameById(r.GameRef);
+            r.Person = personLogic.GetPersonById(r.PersonRef);
+            rentLogic.NewRent(r);
+            return RedirectToAction(nameof(GetRentals));
         }
 
         public IActionResult ModifyRental(int id)
@@ -64,7 +79,7 @@ namespace Rent.WebApp.Controllers
         public IActionResult NewPerson(Person p)
         {
             personLogic.NewPerson(p.Name, p.BirthDate);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(GetPeople));
         }
 
         public IActionResult ModifyPerson(int id)
@@ -87,7 +102,7 @@ namespace Rent.WebApp.Controllers
         public IActionResult NewGame(VideoGame v)
         {
             gameLogic.NewGame(v.Name, v.ReleaseDate, v.Publisher, v.Rating);
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(GetGames));
         }
 
         public IActionResult ModifyGame(int id)

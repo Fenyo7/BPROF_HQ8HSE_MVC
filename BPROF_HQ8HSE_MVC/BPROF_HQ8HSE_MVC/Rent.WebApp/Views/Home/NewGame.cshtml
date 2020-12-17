@@ -1,0 +1,29 @@
+﻿@using Rent.Data
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New game</title>
+</head>
+<body>
+    <h1>New Game</h1>
+    <a href="/Home/Index">Home</a>
+    <br />
+    <form action="/Home/NewGame" method="post">
+        <br />
+        Name: <br />
+        <input type="text" name="Name" /><br />
+        Release date: <br />
+        <input type="datetime" name="ReleaseDate" /><br />
+        Publisher: <br />
+        <input type="text" name="Publisher" /><br />
+        Rating: <br />
+        <input type="number" name="Rating" /><br />
+        <input type="submit" value="Create" />
+    </form>
+</body>
+</html>
