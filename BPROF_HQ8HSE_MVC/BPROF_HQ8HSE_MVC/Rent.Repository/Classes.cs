@@ -9,7 +9,12 @@ namespace Rent.Repository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected RentalContext ctx = new RentalContext();
+        protected RentalContext ctx;
+
+        public Repository(RentalContext ctx)
+        {
+            this.ctx = ctx;
+        }
 
         public IQueryable<T> GetAll()
         {
@@ -22,7 +27,7 @@ namespace Rent.Repository
 
     public class RentRepository : Repository<Rental>, IRentRepository
     {
-        public RentRepository() { }
+        public RentRepository(RentalContext ctx) : base(ctx) { }
 
         public void ChangeRentDate(int id, DateTime newRentDate)
         {
@@ -79,19 +84,19 @@ namespace Rent.Repository
         public string MostRentedGame()
         {
             string r = "";
-            VideoGameRepository gRepo = new VideoGameRepository();
-            var all = gRepo.GetAll();
+            //VideoGameRepository gRepo = new VideoGameRepository();
+            //var all = gRepo.GetAll();
 
-            int maxCount = 0;
-            int id = 0;
-            foreach (var item in all)
-            {
-                if(item.Rentals.Count() > maxCount)
-                {
-                    maxCount = item.Rentals.Count();
-                    id = item.Id;
-                }
-            }
+            //int maxCount = 0;
+            //int id = 0;
+            //foreach (var item in all)
+            //{
+            //    if(item.Rentals.Count() > maxCount)
+            //    {
+            //        maxCount = item.Rentals.Count();
+            //        id = item.Id;
+            //    }
+            //}
 
             //var games = from x in all
             //         group x by x.Rentals.Count into g
@@ -108,7 +113,7 @@ namespace Rent.Repository
             //int key = gameKey._GROUP;
             //int count = maxCount._COUNT;
 
-            r += $"{gRepo.GetOne(id).Name} has been rented the most times, a total of {maxCount} times.";
+            //r += $"{gRepo.GetOne(id).Name} has been rented the most times, a total of {maxCount} times.";
 
             return r;
         }
@@ -117,34 +122,34 @@ namespace Rent.Repository
         {
             string r = "";
 
-            var all = GetAll();
-            List<Person> p = new List<Person>();
-            int[] Counts = new int[all.Count()];
-            int id = 0;
-            foreach (var item in all)
-            {
-                id = 0;
-                foreach (var reference in all)
-                {
-                    if (p.Contains(item.Person))
-                    {
-                        Counts[id]++;
-                    }
-                }
-                id++;
-            }
+            //var all = GetAll();
+            //List<Person> p = new List<Person>();
+            //int[] Counts = new int[all.Count()];
+            //int id = 0;
+            //foreach (var item in all)
+            //{
+            //    id = 0;
+            //    foreach (var reference in all)
+            //    {
+            //        if (p.Contains(item.Person))
+            //        {
+            //            Counts[id]++;
+            //        }
+            //    }
+            //    id++;
+            //}
 
-            int maxCount = 0;
-            for (int i = 0; i < Counts.Length; i++)
-            {
-                if(Counts[i] > maxCount)
-                {
-                    maxCount = Counts[i];
-                    id = i;
-                }
-            }
+            //int maxCount = 0;
+            //for (int i = 0; i < Counts.Length; i++)
+            //{
+            //    if(Counts[i] > maxCount)
+            //    {
+            //        maxCount = Counts[i];
+            //        id = i;
+            //    }
+            //}
 
-            r += $"{GetOne(id).Person.Name} has the most rents, a total of {maxCount} rents.";
+            //r += $"{GetOne(id).Person.Name} has the most rents, a total of {maxCount} rents.";
             return r;
         }
 
@@ -157,7 +162,7 @@ namespace Rent.Repository
 
     public class VideoGameRepository : Repository<VideoGame>, IVideoGameRepository
     {
-        public VideoGameRepository() { }
+        public VideoGameRepository(RentalContext ctx) : base(ctx) { }
 
         public void ChangeGameName(int id, string newName)
         {
@@ -223,7 +228,7 @@ namespace Rent.Repository
 
     public class PersonRepository : Repository<Person>, IPersonRepository
     {
-        public PersonRepository() { }
+        public PersonRepository(RentalContext ctx) : base(ctx) { }
 
         public override Person GetOne(int id)
         {

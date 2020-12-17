@@ -21,6 +21,7 @@ namespace Rent.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc((opt) => opt.EnableEndpointRouting = false);
+            services.AddSingleton<RentalContext, RentalContext>();
             services.AddTransient<IRentRepository, RentRepository>();
             services.AddTransient<IVideoGameRepository, VideoGameRepository>();
             services.AddTransient<IPersonRepository, PersonRepository>();
