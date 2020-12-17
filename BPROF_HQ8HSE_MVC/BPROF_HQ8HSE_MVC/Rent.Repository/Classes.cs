@@ -9,12 +9,7 @@ namespace Rent.Repository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected DbContext ctx;
-
-        public Repository(DbContext ctx)
-        {
-            this.ctx = ctx;
-        }
+        protected RentalContext ctx = new RentalContext();
 
         public IQueryable<T> GetAll()
         {
@@ -27,7 +22,7 @@ namespace Rent.Repository
 
     public class RentRepository : Repository<Rental>, IRentRepository
     {
-        public RentRepository(DbContext ctx) : base(ctx) { }
+        public RentRepository() { }
 
         public void ChangeRentDate(int id, DateTime newRentDate)
         {
@@ -84,7 +79,7 @@ namespace Rent.Repository
         public string MostRentedGame()
         {
             string r = "";
-            VideoGameRepository gRepo = new VideoGameRepository(ctx);
+            VideoGameRepository gRepo = new VideoGameRepository();
             var all = gRepo.GetAll();
 
             int maxCount = 0;
@@ -169,7 +164,7 @@ namespace Rent.Repository
 
     public class VideoGameRepository : Repository<VideoGame>, IVideoGameRepository
     {
-        public VideoGameRepository(DbContext ctx) : base(ctx) { }
+        public VideoGameRepository() { }
 
         public void ChangeGameName(int id, string newName)
         {
@@ -222,17 +217,10 @@ namespace Rent.Repository
         public override void DeleteOne(int id)
         {
             var toRemove = GetOne(id);
-            RentRepository rentRepo = new RentRepository(ctx);
-            List<int> refs = new List<int>();
 
             foreach (var item in toRemove.Rentals)
             {
-                refs.Add(item.Id);
-            }
-
-            foreach (var item in refs)
-            {
-                rentRepo.DeleteOne(item);
+                ctx.Set<Rental>().Remove(item);
             }
 
             ctx.Set<VideoGame>().Remove(GetOne(id));
@@ -242,7 +230,7 @@ namespace Rent.Repository
 
     public class PersonRepository : Repository<Person>, IPersonRepository
     {
-        public PersonRepository(DbContext ctx) : base(ctx) { }
+        public PersonRepository() { }
 
         public override Person GetOne(int id)
         {
@@ -284,17 +272,10 @@ namespace Rent.Repository
         public override void DeleteOne(int id)
         {
             var toRemove = GetOne(id);
-            RentRepository rentRepo = new RentRepository(ctx);
-            List<int> refs = new List<int>();
 
             foreach (var item in toRemove.Rentals)
             {
-                refs.Add(item.Id);
-            }
-
-            foreach (var item in refs)
-            {
-                rentRepo.DeleteOne(item);
+                ctx.Set<Rental>().Remove(item);
             }
 
             ctx.Set<Person>().Remove(GetOne(id));

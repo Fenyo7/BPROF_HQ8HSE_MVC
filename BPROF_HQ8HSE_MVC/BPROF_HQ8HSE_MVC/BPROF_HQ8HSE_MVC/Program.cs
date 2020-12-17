@@ -10,10 +10,10 @@ namespace BPROF_HQ8HSE_MVC
     {
         static void Main(string[] args)
         {
-            RentalContext ctx = new RentalContext();
-            RentRepository rentRepo = new RentRepository(ctx);
-            VideoGameRepository gameRepo = new VideoGameRepository(ctx);
-            PersonRepository personRepo = new PersonRepository(ctx);
+            ;
+            RentRepository rentRepo = new RentRepository();
+            VideoGameRepository gameRepo = new VideoGameRepository();
+            PersonRepository personRepo = new PersonRepository();
             RentLogic rentLogic = new RentLogic(rentRepo);
             VideoGameLogic gameLogic = new VideoGameLogic(gameRepo);
             PersonLogic personLogic = new PersonLogic(personRepo);

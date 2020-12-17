@@ -1,0 +1,22 @@
+﻿@using Rent.Data;
+@model IQueryable<Rental>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>All Rents</h1>
+    @foreach (var item in Model)
+    {
+        <p>item.AllData</p>
+    }
+</body>
+</html>
