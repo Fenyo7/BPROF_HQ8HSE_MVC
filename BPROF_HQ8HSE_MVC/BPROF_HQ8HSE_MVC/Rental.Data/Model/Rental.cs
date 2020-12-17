@@ -47,7 +47,7 @@ namespace Rent.Data
                 string helper;
                 if(ReturnDate != DateTime.MinValue)
                 {
-                    helper = $"and returned it on {ReturnDate.Date}";
+                    helper = $"and returned it on {ReturnDate.ToString("yyyy.MM.dd")}";
                     if(DelayFine > 0)
                     {
                         helper += $", with a fine of ${DelayFine}.";
@@ -61,7 +61,7 @@ namespace Rent.Data
                 {
                     helper = "and have not returned it yet.";
                 }
-                return $"[Id: {Id}] > {Game.Name} was rented by {Person.Name} on {RentDate.Date} {helper}";
+                return $"[Id: {Id}] > {Game.Name} was rented by {Person.Name} on {RentDate.ToString("yyyy.MM.dd")} {helper}";
             } }
 
         public override string ToString()

@@ -1,5 +1,5 @@
-﻿@using Rent.Data;
-@model IQueryable<Rental>
+﻿@using Rent.Data
+@model List<Rental>
 
 @{
     Layout = null;
@@ -16,7 +16,7 @@
     <h1>All Rents</h1>
     @foreach (var item in Model)
     {
-        <p>item.AllData</p>
+        <p>@item.AllData</p>
     }
 </body>
 </html>
