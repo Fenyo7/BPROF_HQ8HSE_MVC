@@ -1,5 +1,4 @@
 ﻿@using Rent.Data
-@model List<Rental>
 
 @{
     Layout = null;
@@ -13,10 +12,11 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>All Rents</h1>
-    @foreach (var item in Model)
-    {
-        <p>@item.AllData</p>
-    }
+    <h1>Home</h1>
+    <a href="/Home/GetRentals">Rentals</a>
+    <br />
+    <a href="/Home/GetPeople">Renters</a>
+    <br />
+    <a href="/Home/GetGames">Games</a>
 </body>
 </html>

@@ -24,7 +24,7 @@ namespace Rent.Data
         }
 
         [NotMapped]
-        public string AllData => $"[Id: {Id}] > Name : {Name}, birth date: {BirthDate.Date}";
+        public string AllData => $"[Id: {Id}] > Name : {Name}, age: {DateTime.Now.Year - BirthDate.Year}";
 
         public override string ToString()
         {

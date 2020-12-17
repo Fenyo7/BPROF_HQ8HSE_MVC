@@ -25,7 +25,7 @@ namespace Rent.Data
         }
 
         [NotMapped]
-        public string AllData => $"[Id: {Id}] > {Name} was released on {ReleaseDate.Date} by {Publisher}. It has a rating of {Rating}/10. ";
+        public string AllData => $"[Id: {Id}] > {Name} was released on {ReleaseDate.ToString("yyyy.MM.dd")} by {Publisher}. It has a rating of {Rating}/10. ";
 
         public override string ToString()
         {

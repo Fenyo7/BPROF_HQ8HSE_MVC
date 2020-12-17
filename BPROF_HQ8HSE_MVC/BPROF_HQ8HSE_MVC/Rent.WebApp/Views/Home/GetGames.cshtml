@@ -1,0 +1,28 @@
+﻿@using Rent.Data
+@model List<VideoGame>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Games</title>
+</head>
+<body>
+    <h1>Videogames</h1>
+    <a href="/Home/Index">Home</a>
+    <br />
+    <a href="/Home/NewGame">Add game</a>
+    <br />
+    <br />
+    @foreach (var item in Model)
+    {
+        <p>@item.AllData</p>
+        <a href="/Home/ModifyGame?id=@item.Id">Modify</a>
+    }
+</body>
+</html>
