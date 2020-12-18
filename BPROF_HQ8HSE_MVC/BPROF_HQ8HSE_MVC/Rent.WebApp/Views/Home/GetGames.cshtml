@@ -2,14 +2,14 @@
 @model List<VideoGame>
 
 
-    <h1>Videogames</h1>
-    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
-    <a class="btn btn-outline-success" href="/Home/NewGame">Add game</a>
-    <br />
-    <br />
-    @foreach (var item in Model)
-    {
-        <p>@item.AllData</p>
-        <a class="btn btn-outline-warning" href="/Home/ModifyGame?id=@item.Id">Modify</a>
-        <a class="btn btn-outline-danger" href="/Home/DeleteGame?id=@item.Id" >Delete</a>
-    }
+<h1>Videogames</h1>
+<a class="btn btn-outline-primary" href="/Home/Index">Home</a>
+<a class="btn btn-outline-success" href="/Home/NewGame">Add game</a>
+<br />
+<br />
+@foreach (var item in Model)
+{
+    <p>@item.AllData</p>
+    <a class="btn btn-outline-warning" href="/Home/ModifyGame?id=@item.Id">Modify</a>
+    <a class="btn btn-outline-danger" href="/Home/DeleteGame?id=@item.Id">Delete</a>
+}

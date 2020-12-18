@@ -20,7 +20,7 @@ namespace Rent.Data
         {
             if (!opt.IsConfigured)
             {
-                opt.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\RentalDatabase.mdf;Integrated Security=True");
+                opt.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;MultipleActiveResultSets=true;AttachDbFilename=|DataDirectory|\RentalDatabase.mdf;Integrated Security=True");
             }
         }
 

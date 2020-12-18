@@ -46,6 +46,16 @@ namespace Rent.WebApp.Controllers
             return View();
         }
 
+        public IActionResult NonCRUDMethods()
+        {
+            return View();
+        }
+
+        public IActionResult GetQueries()
+        {
+            return View(rentLogic);
+        }
+
         #region Rentals
 
         public IActionResult GetRentals()

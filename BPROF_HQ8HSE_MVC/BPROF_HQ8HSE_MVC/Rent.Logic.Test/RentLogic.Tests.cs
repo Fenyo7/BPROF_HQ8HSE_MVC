@@ -26,13 +26,20 @@ namespace Rent.Logic.Test
 
         #region Rent tests
 
-        [TestCase(105, 4, 2020, 12, 11, 1, 1, 1)]
+        [TestCase(103, 4, 2020, 12, 11, 1, 1, 1)]
         [TestCase(102, 5, 2020, 11, 20, 2020, 12, 7)]
         public void CreateRentTest(int gameId, int personId, int rentYear, int rentMonth, int rentDay, int returnYear, int returnMonth, int returnDay)
         {
             DateTime rentDate = new DateTime(rentYear, rentMonth, rentDay);
             DateTime returnDate = new DateTime(returnYear, returnMonth, returnDay);
-            rentLogic.NewRent(gameId, personId, rentDate, returnDate);
+            Rental r = new Rental()
+            {
+                GameRef = gameId,
+                PersonRef = personId,
+                RentDate = rentDate,
+                ReturnDate = returnDate
+            };
+            rentLogic.NewRent(r);
 
             var all = rentLogic.GetAllRentals();
             int id = 0;
