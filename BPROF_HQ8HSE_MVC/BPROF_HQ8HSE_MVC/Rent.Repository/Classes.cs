@@ -83,19 +83,27 @@ namespace Rent.Repository
         {
             string r = "";
             var all = GetAll();
-            int maxCount = 0;
-            Rental rent = new Rental();
 
-            foreach (var item in all)
+            if(all.Count() == 0)
             {
-                if(item.DelayFine > maxCount)
-                {
-                    maxCount = item.DelayFine;
-                    rent = item;
-                }
+                r += "The rental database is empty.";
             }
+            else
+            {
+                int maxCount = 0;
+                Rental rent = new Rental();
 
-            r += $"{rent.Person.Name} has the biggest one time fine of ${maxCount}.";
+                foreach (var item in all)
+                {
+                    if (item.DelayFine > maxCount)
+                    {
+                        maxCount = item.DelayFine;
+                        rent = item;
+                    }
+                }
+
+                r += $"{rent.Person.Name} has the biggest one time fine of ${maxCount}.";
+            }
             return r;
         }
 
@@ -103,38 +111,47 @@ namespace Rent.Repository
         {
             string r = "";
             var all = GetAll();
-            VideoGame game = new VideoGame();
-            int maxRents = 0;
-            foreach (var item in all)
+
+            if(all.Count() != 0)
             {
-                if(item.Game.Rentals.Count() > maxRents)
+                VideoGame game = new VideoGame();
+                int maxRents = 0;
+                foreach (var item in all)
                 {
-                    maxRents = item.Game.Rentals.Count();
-                    game = item.Game;
+                    if (item.Game.Rentals.Count() > maxRents)
+                    {
+                        maxRents = item.Game.Rentals.Count();
+                        game = item.Game;
+                    }
                 }
+                r += $"{game.Name} was rented the most times, a total of {maxRents} times.";
             }
-            r += $"{game.Name} was rented the most times, a total of {maxRents} times.";
+            
             return r;
         }
 
         public string MostRentsByPerson()
         {
             string r = "";
-
             var all = GetAll();
-            Person p = new Person();
-            int maxCount = 0;
 
-            foreach (var item in all)
+            if(all.Count() != 0)
             {
-                if(item.Person.Rentals.Count() > maxCount)
-                {
-                    maxCount = item.Person.Rentals.Count();
-                    p = item.Person;
-                }
-            }
+                Person p = new Person();
+                int maxCount = 0;
 
-            r += $"{p.Name} has the most rents, a total of {maxCount} rents.";
+                foreach (var item in all)
+                {
+                    if (item.Person.Rentals.Count() > maxCount)
+                    {
+                        maxCount = item.Person.Rentals.Count();
+                        p = item.Person;
+                    }
+                }
+
+                r += $"{p.Name} has the most rents, a total of {maxCount} rents.";
+            }
+            
             return r;
         }
 
