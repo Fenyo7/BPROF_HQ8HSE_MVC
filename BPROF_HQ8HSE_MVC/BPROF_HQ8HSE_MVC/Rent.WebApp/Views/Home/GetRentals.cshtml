@@ -1,18 +1,6 @@
 ﻿@using Rent.Data
 @model List<Rental>
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Rentals</title>
-</head>
-<body>
     <h1>All Rents</h1>
     <a href="/Home/Index">Home</a>
     <br />
@@ -25,5 +13,3 @@
         <a href="/Home/ModifyRental?id=@item.Id">Modify  </a> <br />
         <a href="/Home/DeleteRental?id=@item.Id">Delete</a>
     }
-</body>
-</html>

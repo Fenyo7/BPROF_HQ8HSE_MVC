@@ -1,16 +1,7 @@
 ﻿@using Rent.Data
 @model Rent.WebApp.Controllers.DataHelper
 
-@{
-    Layout = null;
-}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Modify a rental</title>
-</head>
-<body>
     <h1>Modify</h1>
     <a href="/Home/Index">Home</a>
     <br />
@@ -51,5 +42,3 @@
         <input type="hidden" name="Id" value="@Model.r.Id" />
         <input type="submit" value="Save Changes" />
     </form>
-</body>
-</html>

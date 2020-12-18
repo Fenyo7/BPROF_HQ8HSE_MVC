@@ -175,6 +175,7 @@ namespace Rent.WebApp.Controllers
             gameLogic.ChangeGameReleaseDate(Id, ReleaseDate);
             gameLogic.ChangeGameRating(Id, Rating);
             return RedirectToAction(nameof(GetGames));
+
         }
 
         public IActionResult DeleteGame(int id)

@@ -1,18 +1,7 @@
 ﻿@using Rent.Data
 @model List<VideoGame>
 
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Games</title>
-</head>
-<body>
     <h1>Videogames</h1>
     <a href="/Home/Index">Home</a>
     <br />
@@ -25,5 +14,3 @@
         <a href="/Home/ModifyGame?id=@item.Id">Modify</a><br />
         <a href="/Home/DeleteGame?id=@item.Id">Delete (Warning, this will delete all associated rentals as well)</a>
     }
-</body>
-</html>
