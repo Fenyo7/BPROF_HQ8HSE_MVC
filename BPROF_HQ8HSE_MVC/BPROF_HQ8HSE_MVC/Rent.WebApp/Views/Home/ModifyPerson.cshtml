@@ -3,14 +3,16 @@
 
 
     <h1>Modify</h1>
-    <a href="/Home/Index">Home</a>
+    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
     <br />
     <form action="/Home/ModifyPerson" method="post">
         <br />
-        Name: <br />
-        <input type="text" name="Name" value="@Model.Name"/><br />
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="Name" value="@Model.Name" />
+            <label for="floatingInput">Name</label>
+        </div>
         Birth date: <br />
-        <input type="datetime" name="BirthDate" value="@Model.BirthDate"/><br />
+        <input type="datetime" name="BirthDate" value="@Model.BirthDate"/><br /><br />
         <input type="hidden" name="Id" value="@Model.Id" />
-        <input type="submit" value="Save Changes" />
+        <input class="btn btn-outline-primary" type="submit" value="Save Changes" />
     </form>

@@ -3,26 +3,24 @@
 
 
     <h1>Modify</h1>
-    <a href="/Home/Index">Home</a>
+    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
     <br />
     <form action="/Home/ModifyRental" method="post">
-        <label for="PersonRef">Choose a person:</label>
-        <select id="PersonRef" name="PersonRef">
+        <select class="form-select" id="PersonRef" name="PersonRef">
             @foreach (var item in Model.p)
             {
                 @if (@Model.r.Person.Id == item.Id)
                 {
                     <option selected="@item.Id">@item.Name</option>
                 }
-                else 
+                else
                 {
                     <option value="@item.Id">@item.Name</option>
                 }
             }
-        </select>
-        <br />
-        <label for="GameRef">Choose a game:</label>
-        <select id="GameRef" name="GameRef">
+        </select><br />
+
+        <select class="form-select" id="GameRef" name="GameRef">
             @foreach (var item in Model.g)
             {
                 @if (@Model.r.Game.Id == item.Id)
@@ -36,9 +34,9 @@
             }
         </select> <br />
         Rent date: <br />
-        <input type="datetime" name="RentDate" value="@Model.r.RentDate"/><br />
+        <input type="datetime" name="RentDate" value="@Model.r.RentDate" /><br /><br />
         Return date: <br />
-        <input type="datetime" name="ReturnDate" value="@Model.r.ReturnDate"/><br />
-        <input type="hidden" name="Id" value="@Model.r.Id" />
-        <input type="submit" value="Save Changes" />
+        <input type="datetime" name="ReturnDate" value="@Model.r.ReturnDate" /><br />
+        <input type="hidden" name="Id" value="@Model.r.Id" /> <br />
+        <input class="btn btn-outline-primary" type="submit" value="Save Changes" />
     </form>

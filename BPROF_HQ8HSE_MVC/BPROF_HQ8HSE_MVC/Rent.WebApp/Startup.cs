@@ -41,6 +41,8 @@ namespace Rent.WebApp
             app.UseRouting();
 
             app.UseMvcWithDefaultRoute();
+
+            app.UseStaticFiles();
         }
     }
 }

@@ -3,14 +3,13 @@
 
 
     <h1>Videogames</h1>
-    <a href="/Home/Index">Home</a>
-    <br />
-    <a href="/Home/NewGame">Add game</a>
+    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
+    <a class="btn btn-outline-success" href="/Home/NewGame">Add game</a>
     <br />
     <br />
     @foreach (var item in Model)
     {
         <p>@item.AllData</p>
-        <a href="/Home/ModifyGame?id=@item.Id">Modify</a><br />
-        <a href="/Home/DeleteGame?id=@item.Id">Delete (Warning, this will delete all associated rentals as well)</a>
+        <a class="btn btn-outline-warning" href="/Home/ModifyGame?id=@item.Id">Modify</a>
+        <a class="btn btn-outline-danger" href="/Home/DeleteGame?id=@item.Id" >Delete</a>
     }

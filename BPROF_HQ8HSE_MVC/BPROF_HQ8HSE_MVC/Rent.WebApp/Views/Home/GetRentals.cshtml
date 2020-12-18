@@ -2,14 +2,13 @@
 @model List<Rental>
 
     <h1>All Rents</h1>
-    <a href="/Home/Index">Home</a>
-    <br />
-    <a href="/Home/NewRental">Add rental</a>
+    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
+    <a class="btn btn-outline-success" href="/Home/NewRental">Add rental</a>
     <br />
     <br />
     @foreach (var item in Model)
     {
         <p>@item.AllData</p>
-        <a href="/Home/ModifyRental?id=@item.Id">Modify  </a> <br />
-        <a href="/Home/DeleteRental?id=@item.Id">Delete</a>
+        <a class="btn btn-outline-warning" href="/Home/ModifyRental?id=@item.Id">Modify  </a>
+        <a class="btn btn-outline-danger" href="/Home/DeleteRental?id=@item.Id">Delete</a>
     }

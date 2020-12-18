@@ -2,20 +2,18 @@
 @model Rent.WebApp.Controllers.DataHelper
 
     <h1>New Rental</h1>
-    <a href="/Home/Index">Home</a>
+    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
     <br />
     <form action="/Home/NewRental" method="post">
         <br />
-        <label for="PersonRef">Choose a person:</label>
-        <select id="PersonRef" name="PersonRef">
+        <select class="form-select" id="PersonRef" name="PersonRef">
             @foreach (var item in Model.p)
             {
                 <option value="@item.Id">@item.Name</option>
             }
-        </select>
+        </select><br />
         <br />
-        <label for="GameRef">Choose a game:</label>
-        <select id="GameRef" name="GameRef">
+        <select class="form-select" id="GameRef" name="GameRef">
             @foreach (var item in Model.g)
             {
                 <option value="@item.Id">@item.Name</option>
@@ -24,6 +22,6 @@
         Rent date: <br />
         <input type="datetime" name="RentDate" /><br />
         Return date: <br />
-        <input type="datetime" name="ReturnDate" /><br />
-        <input type="submit" value="Create" />
+        <input type="datetime" name="ReturnDate" /><br /><br />
+        <input class="btn btn-outline-primary" type="submit" value="Create" />
     </form>

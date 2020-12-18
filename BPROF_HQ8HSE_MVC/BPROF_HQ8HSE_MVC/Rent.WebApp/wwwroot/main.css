@@ -1,0 +1,19 @@
+﻿body {
+    background-color: #ECFEE8;
+}
+
+h1 {
+    color: #41337A;
+}
+
+a {
+    text-decoration: none;
+    background-color: #6EA4BF;
+    color: #41337A;
+    padding: 5px;
+    margin: 10px;
+}
+
+p {
+    color: #331E36;
+}

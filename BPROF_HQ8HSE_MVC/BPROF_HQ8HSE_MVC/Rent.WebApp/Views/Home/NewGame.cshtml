@@ -2,17 +2,23 @@
 
 
     <h1>New Game</h1>
-    <a href="/Home/Index">Home</a>
+    <a class="btn btn-outline-primary" href="/Home/Index">Home</a>
     <br />
     <form action="/Home/NewGame" method="post">
         <br />
-        Name: <br />
-        <input type="text" name="Name" /><br />
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="Name" /><br />
+            <label for="floatingInput">Game Name</label>
+        </div>
         Release date: <br />
-        <input type="datetime" name="ReleaseDate" /><br />
-        Publisher: <br />
-        <input type="text" name="Publisher" /><br />
-        Rating: <br />
-        <input type="number" name="Rating" /><br />
-        <input type="submit" value="Create" />
+        <input type="datetime" name="ReleaseDate" /><br /><br />
+        <div class="form-floating mb-3">
+            <input class="form-control" type="text" name="Publisher" /><br />
+            <label for="floatingInput">Publisher</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" type="number" name="Rating" /><br />
+            <label for="floatingInput">Rating</label>
+        </div>
+        <input class="btn btn-outline-primary" type="submit" value="Create" />
     </form>

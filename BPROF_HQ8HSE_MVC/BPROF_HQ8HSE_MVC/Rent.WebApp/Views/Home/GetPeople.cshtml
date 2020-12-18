@@ -1,15 +1,15 @@
 ﻿@using Rent.Data
 @model List<Person>
 
-    <h1>People / renters</h1>
-    <a href="/Home/Index">Home</a>
-    <br />
-    <a href="/Home/NewPerson">Add renter</a>
-    <br />
-    <br />
-    @foreach (var item in Model)
-    {
-        <p>@item.AllData</p>
-        <a href="/Home/ModifyPerson?id=@item.Id">Modify</a><br />
-        <a href="/Home/DeletePerson?id=@item.Id">Delete (Warning, this will delete all associated rentals as well)</a>
-    }
+<h1>People / renters</h1>
+<a class="btn btn-outline-primary" href="/Home/Index">Home</a>
+<a class="btn btn-outline-success" href="/Home/NewPerson">Add renter</a>
+<br />
+<br />
+
+@foreach (var item in Model)
+{
+    <p>@item.AllData</p>
+    <a class="btn btn-outline-warning" href="/Home/ModifyPerson?id=@item.Id">Modify</a>
+    <a class="btn btn-outline-danger" href="/Home/DeletePerson?id=@item.Id">Delete</a>
+}
