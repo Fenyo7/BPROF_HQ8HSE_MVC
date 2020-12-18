@@ -94,10 +94,14 @@ namespace Rent.WebApp.Controllers
         [HttpPost]
         public IActionResult ModifyRental(int PersonRef, int GameRef, DateTime RentDate, DateTime ReturnDate, int Id)
         {
-            rentLogic.ChangePersonRef(Id, PersonRef);
-            rentLogic.ChangeGameRef(Id, GameRef);
-            rentLogic.ChangeRentDate(Id, RentDate);
-            rentLogic.ChangeReturnDate(Id, ReturnDate);
+            if(rentLogic.GetRentById(Id).PersonRef != PersonRef)
+                rentLogic.ChangePersonRef(Id, PersonRef);
+            if(rentLogic.GetRentById(Id).GameRef != GameRef)
+                rentLogic.ChangeGameRef(Id, GameRef);
+            if (rentLogic.GetRentById(Id).RentDate != RentDate)
+                rentLogic.ChangeRentDate(Id, RentDate);
+            if (rentLogic.GetRentById(Id).ReturnDate != ReturnDate)
+                rentLogic.ChangeReturnDate(Id, ReturnDate);
             return RedirectToAction(nameof(GetRentals));
         }
 

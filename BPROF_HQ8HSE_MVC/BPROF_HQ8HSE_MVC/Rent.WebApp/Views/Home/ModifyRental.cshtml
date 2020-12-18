@@ -11,7 +11,7 @@
             {
                 @if (@Model.r.Person.Id == item.Id)
                 {
-                    <option selected="@item.Id">@item.Name</option>
+                    <option value="@item.Id" selected="@item.Id">@item.Name</option>
                 }
                 else
                 {
@@ -25,7 +25,7 @@
             {
                 @if (@Model.r.Game.Id == item.Id)
                 {
-                    <option selected="@item.Id">@item.Name</option>
+                    <option value="@item.Id" selected="@item.Id">@item.Name</option>
                 }
                 else
                 {
