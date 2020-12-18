@@ -22,7 +22,8 @@
     @foreach (var item in Model)
     {
         <p>@item.AllData</p>
-        <a href="/Home/ModifyGame?id=@item.Id">Modify</a>
+        <a href="/Home/ModifyGame?id=@item.Id">Modify</a><br />
+        <a href="/Home/DeleteGame?id=@item.Id">Delete (Warning, this will delete all associated rentals as well)</a>
     }
 </body>
 </html>

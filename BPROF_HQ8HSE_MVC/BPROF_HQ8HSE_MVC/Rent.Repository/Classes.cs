@@ -29,10 +29,31 @@ namespace Rent.Repository
     {
         public RentRepository(RentalContext ctx) : base(ctx) { }
 
+        public void ChangeGameRef(int id, int newGameRef)
+        {
+            var rent = GetOne(id);
+            rent.GameRef = newGameRef;
+            ctx.SaveChanges();
+        }
+
+        public void ChangePersonRef(int id, int newPersonRef)
+        {
+            var rent = GetOne(id);
+            rent.PersonRef = newPersonRef;
+            ctx.SaveChanges();
+        }
+
         public void ChangeRentDate(int id, DateTime newRentDate)
         {
             var rent = GetOne(id);
             rent.RentDate = newRentDate;
+            ctx.SaveChanges();
+        }
+
+        public void ChangeReturnDate(int id, DateTime newReturnDate)
+        {
+            var rent = GetOne(id);
+            rent.ReturnDate = newReturnDate;
             ctx.SaveChanges();
         }
 

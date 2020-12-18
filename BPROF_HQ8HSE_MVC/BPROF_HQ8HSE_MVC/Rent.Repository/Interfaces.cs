@@ -17,6 +17,9 @@ namespace Rent.Repository
     {
         void NewRent(Rental r);
         void ChangeRentDate(int id, DateTime newRentDate);
+        void ChangeGameRef(int id, int newGameRef);
+        void ChangePersonRef(int id, int newPersonRef);
+        void ChangeReturnDate(int id, DateTime newReturnDate);
 
         string MostRentsByPerson();
         string MostRentedGame();

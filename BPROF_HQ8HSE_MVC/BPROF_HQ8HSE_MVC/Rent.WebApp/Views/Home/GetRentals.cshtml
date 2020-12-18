@@ -22,7 +22,8 @@
     @foreach (var item in Model)
     {
         <p>@item.AllData</p>
-        <a href="/Home/ModifyRental?id=@item.Id">Modify</a>
+        <a href="/Home/ModifyRental?id=@item.Id">Modify  </a> <br />
+        <a href="/Home/DeleteRental?id=@item.Id">Delete</a>
     }
 </body>
 </html>

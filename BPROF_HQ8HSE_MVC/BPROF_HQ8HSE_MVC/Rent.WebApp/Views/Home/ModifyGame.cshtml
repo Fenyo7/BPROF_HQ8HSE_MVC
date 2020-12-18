@@ -14,6 +14,18 @@
     <h1>Modify</h1>
     <a href="/Home/Index">Home</a>
     <br />
-    <p>@Model.AllData</p>
+    <form action="/Home/ModifyGame" method="post">
+        <br />
+        Name: <br />
+        <input type="text" name="Name" value="@Model.Name"/><br />
+        Release date: <br />
+        <input type="datetime" name="ReleaseDate" value="@Model.ReleaseDate"/><br />
+        Publisher: <br />
+        <input type="text" name="Publisher" value="@Model.Publisher"/><br />
+        Rating: <br />
+        <input type="number" name="Rating" value="@Model.Rating"/><br />
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="submit" value="Save Changes" />
+    </form>
 </body>
 </html>

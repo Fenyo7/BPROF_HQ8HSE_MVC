@@ -16,9 +16,24 @@ namespace Rent.Logic
             this.rentRepo = rentRepo;
         }
 
+        public void ChangeGameRef(int id, int newGameRef)
+        {
+            rentRepo.ChangeGameRef(id, newGameRef);
+        }
+
+        public void ChangePersonRef(int id, int newPersonRef)
+        {
+            rentRepo.ChangePersonRef(id, newPersonRef);
+        }
+
         public void ChangeRentDate(int id, DateTime newRentDate)
         {
             rentRepo.ChangeRentDate(id, newRentDate);
+        }
+
+        public void ChangeReturnDate(int id, DateTime newReturnDate)
+        {
+            rentRepo.ChangeReturnDate(id, newReturnDate);
         }
 
         public void DeleteRent(int id)
